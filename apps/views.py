@@ -17,16 +17,15 @@ def script_out(request):
         a.append(int(request.POST['number_'+str(i)]))
     b = []
     for i in range(len(a)):
-        b.append(a[i])
         for j in range(i+1,len(a)):
             if obj.maximum_number < (a[i]+a[j]):
                 pass
             else:
                 b.append(a[i]+a[j])
-            if obj.minimum_number > (a[i]-a[j]):
+            if obj.maximum_number < abs(a[i]-a[j]):
                 pass
             else:
-                b.append(a[i]-a[j])
+                b.append(abs(a[i]-a[j]))
     print(b)
     b.sort()
     a = {'up':[],'down':[]}
