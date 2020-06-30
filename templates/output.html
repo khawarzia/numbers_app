@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% block title %}
+Number App - Output
+{% endblock %}
+{% block content %}
+<a href="{% url 'index' %}">
+    <=back
+</a>
+<h1 style="font-size: 70px;">
+{% for i in obj.down %}
+{{i}}
+{% endfor %}
+</h1>
+<br><hr><br>
+<h1 style="font-size: 70px;">
+{% for i in obj.up %}
+{{i}}
+{% endfor %}
+</h1>
+{% endblock %}

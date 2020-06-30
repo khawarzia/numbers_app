@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {% block title %}
+            Number App - Home
+            {% endblock %}
+        </title>
+    </head>
+    <body>
+        <br>
+        <center>
+            {% block content %}
+            <form method="POST" action="{% url 'output' %}">{% csrf_token %}
+                    <h3>
+                        <strong>
+                            The numbers to enter should be between {{obj.minimum_number}} - {{obj.maximum_number}} only!
+                        </strong>
+                    </h3>
+                    {% for i in range %}
+                        Number # {{i}} : <input type="number" name="number_{{i}}" max="{{obj.maximum_number}}" min="{{obj.minimum_number}}" required style="width: 20%;height: 30px;"><br><br>
+                    {% endfor %}
+                    <input type="submit" value="GO!" style="width: 5%;height: 40px;">
+            </form> 
+            {% endblock %}
+        </center>
+    </body>
+</html>
